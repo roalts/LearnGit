@@ -7,13 +7,16 @@ import (
 
 func main() {
 	start := time.Now()
-	//var sum int
-	//for i:=0; i<1048576; i++ {
-	//	sum = sum + i
-	//}
+	var sum int
+	for i:=0; i<1048576; i++ {
+		sum = sum + i
+	}
 	appendString("",20)
 	elapsed := time.Since(start)
 	fmt.Println(elapsed)
+	go add2(1,3)
+	go add(5, 8)
+	select {}
 }
 
 func add2(a int, b int) (c int) {
@@ -33,9 +36,9 @@ func add(a int, b int) (c int) {
 var sum uint
 func appendString(input string, n int) {
 	if len(input) == n {
-		//fmt.Println(input)
+		fmt.Println(input)
 		sum = sum + 1
-		//fmt.Println(sum)
+		fmt.Println(sum)
 		return
 	}
 	 appendString(input + "0", n)
